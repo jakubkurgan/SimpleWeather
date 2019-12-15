@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray2
+        
+        WeatherLocationService.searchLocation(by: "wars") { (result) in
+            print(result)
+        }
     }
 
 
