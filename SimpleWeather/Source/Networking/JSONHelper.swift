@@ -13,6 +13,7 @@ struct JSONHelper {
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
         let jsonData = try JSONSerialization.data(withJSONObject: jsonObject)
         let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.dateOnly)
         let remoteList = try jsonData.decoded(using: decoder) as R
         
         return remoteList

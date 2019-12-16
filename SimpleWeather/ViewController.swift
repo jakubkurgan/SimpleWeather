@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemGray2
         
-        WeatherLocationService.searchLocation(by: "wars") { (result) in
+        WeatherLocationService.getLocationWeather(by: 523920) { (result) in
             print(result)
         }
     }

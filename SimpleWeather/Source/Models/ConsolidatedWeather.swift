@@ -1,5 +1,5 @@
 //
-//  WeatherPrediction.swift
+//  ConsolidatedWeather.swift
 //  SimpleWeather
 //
 //  Created by Jakub Kurgan on 15/12/2019.
@@ -8,22 +8,22 @@
 
 import Foundation
 
-struct WeatherPrediction: Decodable {
+struct ConsolidatedWeather: Decodable {
     let id: Int
     let weatherStateName: String
     let weatherStateAbbr: String
     let windDirectionCompass: String
     let created: String
-    let applicableDate: Date?
+    let applicableDate: Date
     let minTemp: Decimal
-    let maxTemp: Decimal
-    let theTemp: Decimal
-    let windSpeed: Decimal
-    let windDirection: Decimal
-    let airPressure: Decimal
-    let humidity: Decimal
-    let visibility: Decimal
-    let predictability: Decimal
+    let maxTemp: Double
+    let theTemp: Double
+    let windSpeed: Double
+    let windDirection: Double
+    let airPressure: Double
+    let humidity: Double
+    let visibility: Double
+    let predictability: Double
 
     enum CodingKeys: String, CodingKey {
         case id = "id"

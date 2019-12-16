@@ -10,8 +10,26 @@ import Foundation
 
 struct WeatherLocationService {
     static func searchLocation(by query: String, completion: @escaping (Result<[Location], Error>) -> Void) {
-        let querySearchItem = URLQueryItem(name: "query", value: query)
+        let querySearchItem = URLQueryItem(name: "query",
+                                           value: query)
+        
         BaseHttpClient().request(path: "api/location/search/", queryParams: [querySearchItem]) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    completion(.success(try JSONHelper.decodeToObject(from: data)))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    static func getLocationWeather(by woeid: Int, completion: @escaping (Result<LocationWeather, Error>) -> Void) {
+        
+        BaseHttpClient().request(path: "api/location/\(woeid)/") { result in
             switch result {
             case .success(let data):
                 do {
