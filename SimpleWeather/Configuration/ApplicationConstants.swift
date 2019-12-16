@@ -12,4 +12,8 @@ enum ApplicationConstants {
     enum Main: String {
         case applicationName = "SimpleWeather"
     }
+    
+    enum Networking: String {
+        case baseURL = "https://www.metaweather.com/"
+    }
 }

@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray2
+        
+        WeatherLocationService.getLocationWeather(by: 523920) { (result) in
+            print(result)
+        }
     }
 
 
