@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import SimpleNetworking
 
 struct WeatherLocationService {
     static func searchLocation(by query: String, completion: @escaping (Result<[Location], Error>) -> Void) {
         let querySearchItem = URLQueryItem(name: "query",
                                            value: query)
         
-        BaseHttpClient().request(path: "api/location/search/", queryParams: [querySearchItem]) { result in
+        BaseHttpClient(baseURL: URL(string: ApplicationConstants.Networking.baseURL.rawValue)).request(path: "api/location/search/", queryParams: [querySearchItem]) { result in
             switch result {
             case .success(let data):
                 do {
@@ -28,8 +29,8 @@ struct WeatherLocationService {
     }
     
     static func getLocationWeather(by woeid: Int, completion: @escaping (Result<LocationWeather, Error>) -> Void) {
-        
-        BaseHttpClient().request(path: "api/location/\(woeid)/") { result in
+      
+        BaseHttpClient(baseURL: URL(string: ApplicationConstants.Networking.baseURL.rawValue)).request(path: "api/location/\(woeid)/") { result in
             switch result {
             case .success(let data):
                 do {

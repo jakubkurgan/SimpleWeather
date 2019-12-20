@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,10 +21,10 @@
 		90CBDA2423A6BB05001B1CA9 /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBDA2323A6BB05001B1CA9 /* ApplicationConstants.swift */; };
 		90CBDA2723A6BBDF001B1CA9 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBDA2623A6BBDF001B1CA9 /* Data+Extension.swift */; };
 		90CBDA2923A6BBF1001B1CA9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBDA2823A6BBF1001B1CA9 /* String+Extension.swift */; };
-		90CBDA3123A6BFCD001B1CA9 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBDA3023A6BFCD001B1CA9 /* HttpClient.swift */; };
 		90CBDA3323A6C1C5001B1CA9 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBDA3223A6C1C5001B1CA9 /* JSONHelper.swift */; };
 		90CBDA3523A6C1FA001B1CA9 /* WeatherLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBDA3423A6C1FA001B1CA9 /* WeatherLocationService.swift */; };
 		90CBDA3823A6D02E001B1CA9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBDA3723A6D02E001B1CA9 /* Location.swift */; };
+		90E2D73E23AA22CC00C4A50F /* SimpleNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 90E2D73D23AA22CC00C4A50F /* SimpleNetworking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +65,6 @@
 		90CBDA2323A6BB05001B1CA9 /* ApplicationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConstants.swift; sourceTree = "<group>"; };
 		90CBDA2623A6BBDF001B1CA9 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		90CBDA2823A6BBF1001B1CA9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		90CBDA3023A6BFCD001B1CA9 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		90CBDA3223A6C1C5001B1CA9 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		90CBDA3423A6C1FA001B1CA9 /* WeatherLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationService.swift; sourceTree = "<group>"; };
 		90CBDA3723A6D02E001B1CA9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -76,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90E2D73E23AA22CC00C4A50F /* SimpleNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +189,6 @@
 		90CBDA2F23A6BFBD001B1CA9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				90CBDA3023A6BFCD001B1CA9 /* HttpClient.swift */,
 				90CBDA3223A6C1C5001B1CA9 /* JSONHelper.swift */,
 				90CBDA3423A6C1FA001B1CA9 /* WeatherLocationService.swift */,
 			);
@@ -222,6 +221,9 @@
 			dependencies = (
 			);
 			name = SimpleWeather;
+			packageProductDependencies = (
+				90E2D73D23AA22CC00C4A50F /* SimpleNetworking */,
+			);
 			productName = SimpleWeather;
 			productReference = 90575DE223A57B3B0053F58C /* SimpleWeather.app */;
 			productType = "com.apple.product-type.application";
@@ -294,6 +296,9 @@
 				Base,
 			);
 			mainGroup = 90575DD923A57B3B0053F58C;
+			packageReferences = (
+				90E2D73C23AA22CC00C4A50F /* XCRemoteSwiftPackageReference "SimpleNetworking" */,
+			);
 			productRefGroup = 90575DE323A57B3B0053F58C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -343,7 +348,6 @@
 				90575DE623A57B3B0053F58C /* AppDelegate.swift in Sources */,
 				90CBDA2723A6BBDF001B1CA9 /* Data+Extension.swift in Sources */,
 				90CBDA2423A6BB05001B1CA9 /* ApplicationConstants.swift in Sources */,
-				90CBDA3123A6BFCD001B1CA9 /* HttpClient.swift in Sources */,
 				9097E16623A6D77F003B056A /* ConsolidatedWeather.swift in Sources */,
 				90CBDA3323A6C1C5001B1CA9 /* JSONHelper.swift in Sources */,
 				9097E16823A80D9E003B056A /* LocationWeather.swift in Sources */,
@@ -670,6 +674,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		90E2D73C23AA22CC00C4A50F /* XCRemoteSwiftPackageReference "SimpleNetworking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jakubkurgan/SimpleNetworking.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90E2D73D23AA22CC00C4A50F /* SimpleNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90E2D73C23AA22CC00C4A50F /* XCRemoteSwiftPackageReference "SimpleNetworking" */;
+			productName = SimpleNetworking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 90575DDA23A57B3B0053F58C /* Project object */;
 }
